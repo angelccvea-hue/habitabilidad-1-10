@@ -70,6 +70,37 @@ Detalle técnico de seguridad: [`docs/03-SEGURIDAD.md`](docs/03-SEGURIDAD.md).
 
 ---
 
+## Cómo replicar el BI en local
+
+> Este repositorio **no incluye** los Excel de 1×10 ni Habitable (datos personales). Necesitas esos archivos por aparte.
+
+1. **Clonar e instalar**
+   ```powershell
+   git clone https://github.com/angelccvea-hue/habitabilidad-1-10.git
+   cd habitabilidad-1-10
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+
+2. **Arrancar**
+   ```powershell
+   streamlit run app.py
+   ```
+   Abrir http://localhost:8501
+
+3. **Crear el primer administrador**  
+   En la pantalla inicial: usuario, contraseña (≥ 8 caracteres) y activar **2FA** con Google Authenticator (u otra app TOTP).
+
+4. **Cargar datos** (rol admin)  
+   En el expander de carga: subir el Excel **1×10** y el Excel/CSV **Habitable** → **Procesar cruce**.  
+   Eso genera los parquet en `data/processed/` y habilita mapas y análisis.
+
+5. **(Opcional)** Capas de abordaje / NASA / IA  
+   Sin ellas el tablero principal funciona; esas secciones quedan limitadas hasta copiar o generar los archivos en `data/gis_lite/` y `data/external_nasa/`.
+
+En desarrollo no hace falta `BI_DATA_KEY` ni tiles institucionales. En un entorno tipo producción, ver `docs/03-SEGURIDAD.md`.
+
 ## Empezar por aquí (revisores de código)
 
 1. [`docs/00-GUIA-DE-LECTURA.md`](docs/00-GUIA-DE-LECTURA.md) — orden sugerido de lectura  
@@ -80,15 +111,7 @@ Detalle técnico de seguridad: [`docs/03-SEGURIDAD.md`](docs/03-SEGURIDAD.md).
 
 ## Arranque local (desarrollo)
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-# Generar parquet (rutas en config.toml) o subir Excel en la UI como admin
-streamlit run app.py
-```
-
-Abrir http://localhost:8501
+Ver la sección **Cómo replicar el BI en local** más arriba.
 
 ## Variables de entorno relevantes
 

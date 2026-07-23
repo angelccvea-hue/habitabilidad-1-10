@@ -14,3 +14,4 @@ tornado>=6.4
 pyotp>=2.9
 qrcode[pil]>=7.4
 cryptography>=42.0
+bcrypt>=4.1
