@@ -1,0 +1,38 @@
+﻿# Byte-compiled
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+data/uploads/
+data/processed/*.parquet
+data/processed/*.json
+.streamlit/secrets.toml
+data/auth/
+data/audit/
+*.xlsx
+.DS_Store
+.env
+.env.local
+
+# NASA bruto / demasiado pesado para Git (usar scripts de descarga en local)
+data/external_nasa/nasa_s1_all_full/
+data/external_nasa/nasa_s1_all_structures/
+data/external_nasa/**/*.geojson
+data/external_nasa/**/*.geojsonl
+# Se versionan: nasa_map_lite*, cruce_*_nasa/, likely_damaged.parquet (si cabe)
+.env.bi_data_key
+
+# Datos locales / secretos (este repo es para revisión de código)
+data/uploads/**
+!data/uploads/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+data/auth/**
+!data/auth/.gitkeep
+data/audit/**
+!data/audit/.gitkeep
+data/gis_lite/**
+!data/gis_lite/.gitkeep
+data/external_nasa/**
+!data/external_nasa/.gitkeep
+!data/README.md
